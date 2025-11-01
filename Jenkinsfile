@@ -38,9 +38,9 @@ pipeline {
             steps {
                 script {
                     try {
-                        withCredentials([usernamePassword(credentialsId: 'dockerhubcreds', 
-                                                         usernameVariable: 'kratos4257', 
-                                                         passwordVariable: 'admin1234')]) {
+                        withCredentials([usernamePassword(credentialsId: 'dockerhubcreds',
+                        	         usernameVariable: 'DOCKER_USERNAME',
+                                	 passwordVariable: 'DOCKER_PASSWORD')]) {
                             // Explicit login before push
                             sh """
                             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
